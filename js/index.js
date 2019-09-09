@@ -1,25 +1,34 @@
+{"esversion:6"}
+
 // Your code goes here
 //Lets change the color of the Fun Bus logo on a mouseover event to red
-const mousedOverLogo = document.querySelector('.logo-heading');
+let mousedOverLogo = document.querySelector('.logo-heading');
 
 mousedOverLogo.addEventListener('mouseover', (e) => {
     console.log('mouseover counter'); mousedOverLogo.style.color = 'red';
 
     // reset timer
-    setTime(function() {
+    let setTime = (function() {
         event.target.style.color = "";
-    }, 500);
+    }, 200);
 }, false);
 
-// Lets create a Keydown event that affects the body
-const bodyEventKey = document.getElementsByTagName("body");
+// // Lets create a mouseover event that scales the images
+const allFunBusImages = document.querySelectorAll('img');
 
-bodyEventKey.addEventListener("keydown", e => {
-    bodyEventKey.style.color = 'aqua';
+allFunBusImages.forEach((image) => {
+    image.addEventListener('mouseover', (event) => {
+        image.style.transform = 'scale(1.4)';
+        image.style.transition = 'scale 0.5s';
+    })
+    image.addEventListener('mouseout', (event) => {
+        image.style.transform = 'scale(1.0)';
+        image.style.transition = 'transform 0.5s';
+    })
+});
 
-})
-
-// Lets report back window height and width during resize
+// 
+// // Lets report back window height and width during resize
 const heightOutput = document.querySelector('#height');
 const widthOutput = document.querySelector('#width');
 
@@ -29,25 +38,24 @@ function reportWindowSize() {
     heightOutput.textContent = window.innerHeight;
     widthOutput.textContent = window.innerWidth;
 }
-// Lets allow quick zoom in or out with mousewheel
-let scale = 1;
-const entireDoc = document.querySelector('body');
+// // Lets allow quick zoom in or out with mousewheel
 
-entireDoc.addEventListener('wheel', zoom);
 function zoom(event) {
     event.preventDefault();
-  
+
     scale += event.deltaY * -0.01;
-  
-    // Restrict scale
+
     scale = Math.min(Math.max(.125, scale), 4);
-  
-    // Apply scale transform
-    entireDoc.style.transform = `scale(${scale})`;
-  }
+
+    el.style.transform = `scale(${scale})`;
+}
+let scale = 1;
+const el = document.querySelector("body > div > section.content-pick");
+el.onwheel = zoom;
+
 
   const dragLogo = document.querySelector('.logo-heading')
-  dragLogo.document.addEventListener("drag", function(event) {
+  dragLogo.addEventListener("drag", function(event) {
 
   }, false);
 
@@ -93,3 +101,12 @@ document.addEventListener("dragover", function(event) {
       event.target.appendChild( dragged );
     }
   }, false);
+
+  const btnDoubleClicked = document.querySelectorAll('.btn');
+  
+      btnDoubleClicked.addEventListener('dblclick', (e) => {
+          btnDoubleClicked.innerHtml = "Ready?";
+      });
+  
+
+  
