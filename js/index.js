@@ -9,9 +9,46 @@ mousedOverLogo.addEventListener('mouseover', (e) => {
 
     // reset timer
     let setTime = (function() {
-        event.target.style.color = "";
+        event.target.style.color = "white";
     }, 200);
 }, false);
+
+let darkMode = document.querySelector('body, .main-navigation');
+
+darkMode.addEventListener('mouseover', (e) => {
+    console.log('Dark mode activated'); document.body.style.backgroundColor = '#181a1b';
+    let darkModeNav = document.querySelector('.main-navigation');
+    darkModeNav.style.backgroundColor = '#181a1b';
+    document.querySelector("body > div > header > h2").style.color = 'red';
+    document.querySelector("body > div > section:nth-child(2) > div.text-content > h2").style.color = 'red';
+    document.querySelector("body > div > section.content-section.inverse-content > div.text-content > h2").style.color = 'red';
+    document.querySelector("body > div > section.content-destination > h2").style.color = 'red';
+    document.querySelector("body > div > header > p").style.color = 'white';
+    document.querySelector("body > div > section:nth-child(2) > div.text-content > p:nth-child(2)").style.color = 'white';
+    document.querySelector("body > div > section:nth-child(2) > div.text-content > p:nth-child(3)").style.color = 'white';
+    document.querySelector("body > div > section.content-section.inverse-content > div.text-content > p:nth-child(2)").style.color = 'white';
+    document.querySelector("body > div > section.content-section.inverse-content > div.text-content > p:nth-child(3)").style.color = 'white';
+    document.querySelector("body > div > section.content-destination > p").style.color = 'white';
+    document.querySelector("body > div > section.content-pick > div:nth-child(1) > p").style.color = 'white';
+    document.querySelector("body > div > section.content-pick > div:nth-child(2) > p").style.color = 'white';
+    document.querySelector("body > div > section.content-pick > div:nth-child(3) > p").style.color = 'white';
+    document.querySelector("body > div > section.content-pick > div:nth-child(1) > h4").style.color = 'red';
+    document.querySelector("body > div > section.content-pick > div:nth-child(2) > h4").style.color = 'red';
+    document.querySelector("body > div > section.content-pick > div:nth-child(3) > h4").style.color = 'red';
+    document.querySelector("body > header > div > nav > a:nth-child(1)").style.color = 'blue';
+    document.querySelector("body > header > div > nav > a:nth-child(2)").style.color = 'blue';
+    document.querySelector("body > header > div > nav > a:nth-child(3)").style.color = 'blue';
+    document.querySelector("body > header > div > nav > a:nth-child(4)").style.color = 'blue';
+
+
+});
+
+// lets prevent the navigatyion links from refreshing the page
+
+// let noRefreshLinks = document.querySelectorAll('a')
+// noRefreshLinks.addEventListener('clicked', (e) => {
+//     e.preventDefault();
+// });
 
 // // Lets create a mouseover event that scales the images
 const allFunBusImages = document.querySelectorAll('img');
@@ -102,11 +139,13 @@ document.addEventListener("dragover", function(event) {
     }
   }, false);
 
-  const btnDoubleClicked = document.querySelectorAll('.btn');
+
   
-      btnDoubleClicked.addEventListener('dblclick', (e) => {
-          btnDoubleClicked.innerHtml = "Ready?";
-      });
-  
+
+let noRefreshLinks = document.querySelectorAll('a')
+noRefreshLinks.addEventListener('click', (e) => {
+    console.log("no refresh");
+});
+
 
   
