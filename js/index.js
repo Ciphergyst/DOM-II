@@ -143,9 +143,11 @@ document.addEventListener("dragover", function(event) {
   
 
 let noRefreshLinks = document.querySelectorAll('a')
-noRefreshLinks.addEventListener('click', (e) => {
-    console.log("no refresh");
-});
+noRefreshLinks.forEach( klick => {
+    klick.addEventListener('click', (event) => {
+        alert('Navigation has temporarily been disabled');
+    })
+})
 
 
   
